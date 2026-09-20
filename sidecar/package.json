@@ -1,0 +1,15 @@
+{
+  "name": "hermes-remarkable-sidecar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JSON-lines reMarkable Cloud bridge for the Hermes reMarkable plugin",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test ../tests/cloud-entrypoint.test.mjs ../tests/cloud-protocol.test.mjs ../tests/cloud-sidecar.test.mjs ../tests/cloud-session.test.mjs"
+  },
+  "dependencies": {
+    "rmapi-js": "14.3.0",
+    "jszip": "3.10.2"
+  }
+}

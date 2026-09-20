@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+state/
+node_modules/
+tests/download-probe.bin
+.pytest_cache/
+.venv*/
+*.egg-info/
+dist/
+local-evidence/
+*.tmp
+

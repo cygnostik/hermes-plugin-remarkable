@@ -1,0 +1,83 @@
+manifest_version: 2
+name: remarkable
+version: 0.2.0
+requires_hermes: ">=0.21.3"
+description: Unofficial reMarkable tablet toolkit — cloud library, folder transfers, notebook rendering, typed text, backups, and explicit local transports
+author: "Chris M. / ProDyn.ai"
+license: MIT
+python_runtime: external
+tags: [remarkable, notes, documents, cloud, unofficial]
+provides_tools:
+  - remarkable_enroll
+  - remarkable_status
+  - remarkable_list
+  - remarkable_download
+  - remarkable_upload
+  - remarkable_mkdir
+  - remarkable_manage
+  - remarkable_export
+  - remarkable_extract_text
+  - remarkable_search
+  - remarkable_backup
+  - remarkable_changes
+config_schema:
+  token_file:
+    type: str
+    default: ""
+    description: Existing device-token file or enrollment destination. Default is the profile credentials/remarkable/device-token, outside installation. Never put the token itself here.
+  state_dir:
+    type: str
+    default: ""
+    description: Cache/worker state directory. Default is profile plugin-data/remarkable.
+  node_path:
+    type: str
+    default: node
+    description: Node executable for the bundled cloud sidecar.
+  timeout_ms:
+    type: int
+    default: 180000
+    description: Cloud operation timeout in milliseconds. A timed-out write may have happened; inspect before retrying.
+  transport:
+    type: str
+    default: cloud
+    description: Default transport, cloud/usb/ssh. No automatic write fallback.
+  renderer_python:
+    type: str
+    default: ""
+    description: Optional Python executable with rendering requirements. Default uses the isolated runtime created by hermes remarkable setup-renderer.
+  render_timeout:
+    type: int
+    default: 180
+    description: Native rendering subprocess timeout in seconds.
+  usb_enabled:
+    type: bool
+    default: false
+    description: Explicitly enable the local USB transport. No automatic cloud fallback.
+  usb_allow_upload:
+    type: bool
+    default: false
+    description: Independently allow USB PDF uploads to explicitly acknowledged root only.
+  ssh_enabled:
+    type: bool
+    default: false
+    description: Explicitly enable read-only SSH/SFTP using existing host trust and keys.
+  usb_url:
+    type: str
+    default: "http://10.11.99.1"
+    description: Explicit tablet USB web interface address; enable on the tablet yourself.
+  ssh_host:
+    type: str
+    default: ""
+    description: Opt-in tablet SSH hostname. No Developer Mode or SSH setup is performed automatically.
+  ssh_user:
+    type: str
+    default: root
+    description: SSH account, with existing key-based authentication.
+  ssh_port:
+    type: int
+    default: 22
+    description: SSH port.
+  ssh_identity:
+    type: str
+    default: ""
+    description: Optional existing SSH identity-file path. Host key must already be trusted; secrets never enter chat.

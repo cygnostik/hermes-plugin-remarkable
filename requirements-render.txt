@@ -1,0 +1,11 @@
+# Optional renderer-only dependencies. Never install into Hermes' interpreter.
+# Native LIB rMLines: https://github.com/RedTTGMoss/librm_lines (attribution required).
+# Exact versions tested on Windows 11 x64 / CPython 3.11.15.
+# rm-lines-sys wheels: Windows amd64/arm64; macOS 15+ x86_64/arm64;
+# Linux manylinux_2_39 x86_64/aarch64. No renderer substitution on unsupported OS.
+# PyMuPDF is AGPL-3.0 or Artifex commercial: review redistribution obligations.
+rm-lines-sys==1.4.7
+rmscene==0.8.0
+pymupdf==1.27.2.3
+pillow==12.1.1
+packaging==23.2
