@@ -136,6 +136,8 @@ def test_external_native_worker_from_relocated_unicode_install(tmp_path):
 
 
 def test_release_ci_covers_supported_native_runners_with_pinned_actions():
+    # The real Hermes URL installer rejects version 2 even though validate/doctor accept it.
+    assert 'manifest_version: 1' in (ROOT / 'plugin.yaml').read_text(encoding='utf-8')
     workflow = ROOT / '.github' / 'workflows' / 'ci.yml'
     assert workflow.is_file(), 'Release needs offline Python + Node + native CI'
     text = workflow.read_text(encoding='utf-8')
