@@ -23,10 +23,10 @@ jobs:
       run:
         shell: bash
     env:
-      HERMES_HOME: ${{ runner.temp }}/remarkable-profile
-      TMPDIR: ${{ runner.temp }}/remarkable-scratch
-      TEMP: ${{ runner.temp }}/remarkable-scratch
-      TMP: ${{ runner.temp }}/remarkable-scratch
+      HERMES_HOME: ${{ github.workspace }}/../remarkable-ci/remarkable-profile
+      TMPDIR: ${{ github.workspace }}/../remarkable-ci/remarkable-scratch
+      TEMP: ${{ github.workspace }}/../remarkable-ci/remarkable-scratch
+      TMP: ${{ github.workspace }}/../remarkable-ci/remarkable-scratch
       PYTHONUTF8: '1'
       PIP_DISABLE_PIP_VERSION_CHECK: '1'
     steps:
